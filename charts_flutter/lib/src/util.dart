@@ -18,6 +18,7 @@ import 'package:flutter/rendering.dart'
         RenderBox,
         RenderSemanticsGestureHandler,
         RenderPointerListener,
+        RenderMouseRegion,
         RenderCustomMultiChildLayoutBox;
 import 'chart_container.dart' show ChartContainerRenderObject;
 
@@ -36,8 +37,11 @@ ChartContainerRenderObject getChartContainerRenderObject(RenderBox box) {
       (semanticHandler as RenderSemanticsGestureHandler).child;
 
   assert(renderPointerListener is RenderPointerListener);
-  final chartContainerRenderObject =
+  final renderMouseRegion =
       (renderPointerListener as RenderPointerListener).child;
+
+  assert(renderMouseRegion is RenderMouseRegion);
+  final chartContainerRenderObject = (renderMouseRegion as RenderMouseRegion).child;
 
   assert(chartContainerRenderObject is ChartContainerRenderObject);
 

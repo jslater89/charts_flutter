@@ -492,7 +492,7 @@ class LineRenderer<D> extends BaseCartesianRenderer<D> {
           }
         }
 
-        if (_hasMeasureBounds) {
+        if (_hasMeasureBounds ?? false) {
           for (var index = 0; index < boundsElementList.length; index++) {
             final boundElement = boundsElementList[index];
 
@@ -651,7 +651,7 @@ class LineRenderer<D> extends BaseCartesianRenderer<D> {
 
     // Create the bounds element
     final boundsElements = <_AreaRendererElement<D>>[];
-    if (_hasMeasureBounds) {
+    if (_hasMeasureBounds ?? false) {
       // Update the set of bounds that still exist in the series data.
       for (var index = 0; index < boundsSegment.length; index++) {
         final boundsPointList = boundsSegment[index];
@@ -966,7 +966,7 @@ class LineRenderer<D> extends BaseCartesianRenderer<D> {
         });
       }
 
-      if (_hasMeasureBounds) {
+      if (_hasMeasureBounds ?? false) {
         elements
             .map<List<_AnimatedArea<D>>>(
                 (_AnimatedElements<D> animatingElement) =>
